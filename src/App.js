@@ -55,16 +55,16 @@ function RiceProfitCalculator() {
   const balesToKg = (bales) => bales * 60;
 
   // 俵数からフレコン本数への変換（1フレコン = 1000kg）
-  const balesToFlacon = (bales) => Math.ceil(balesToKg(bales) / 1000);
+  const balesToFlacon = (bales) => Math.round(balesToKg(bales) / 1000);
 
   // フレコンから俵数への変換（1フレコン = 1000kg = 約16.67俵）
-  const flaconToBales = (flacon) => flacon * 1000 / 60;
+  const flaconToBales = (flacon) => Math.round(flacon * 1000 / 60);
 
   // 利益計算
   const calculateProfit = (company, riceType) => {
     const pricePer60kg = prices[company][riceType];
     const quantityInBales = flaconToBales(flacons[company][riceType]);
-    const totalPrice = balesToKg(quantityInBales) / 60 * pricePer60kg;
+    const totalPrice = Math.round(balesToKg(quantityInBales) / 60 * pricePer60kg);
     return totalPrice;
   };
 
@@ -75,7 +75,7 @@ function RiceProfitCalculator() {
       ...prev,
       [company]: {
         ...prev[company],
-        [riceType]: isNaN(value) ? 0 : value,
+        [riceType]: isNaN(value) ? 0 : Math.round(value),
       },
     }));
     setFlacons((prev) => ({
@@ -94,7 +94,7 @@ function RiceProfitCalculator() {
       ...prev,
       [company]: {
         ...prev[company],
-        [riceType]: isNaN(value) ? 0 : value,
+        [riceType]: isNaN(value) ? 0 : Math.round(value),
       },
     }));
     setQuantities((prev) => ({
