@@ -25,7 +25,7 @@ function RiceBreakdownTable() {
           <tr>
             <th className="px-4 py-2">品種</th>
             <th className="px-4 py-2">合計本数</th>
-            <th className="px-4 py-2">販売用本数</th>
+            <th className="px-4 py-2">会社在庫数d</th>
             <th className="px-4 py-2">ハネ分本数</th>
             <th className="px-4 py-2">食用本数</th>
           </tr>
