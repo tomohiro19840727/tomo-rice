@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import RiceBreakdownTable from './components/RiceBreakdownTable';
 
 function RiceProfitCalculator() {
   // 各品種のデータ
@@ -118,6 +119,7 @@ function RiceProfitCalculator() {
 
   return (
     <div className="p-4">
+      
       <h2 className="text-lg font-bold">生産データ</h2>
       <table className="table-auto w-full mb-4">
         <thead>
@@ -143,6 +145,10 @@ function RiceProfitCalculator() {
           ))}
         </tbody>
     </table>
+    <div className='m-10'>
+    <RiceBreakdownTable />
+    </div>
+
       <h1 className="text-xl font-bold mb-4">米の利益計算</h1>
 
       {/* 出荷量の入力と利益計算 */}
